@@ -10,5 +10,21 @@ ingenieria Informatica - Universidad Tecnica de Oruro.
 | 2		 | POO Fundamentos 	| semana-02-gestor-tareas /	|
 | ...		 | ... 			| ...				|
 
+## Estructura del Repositorio
+'''
+Aprendiendo-Java-10-semanas
+	README.md
+	.gitignore
+	semana-01-calificaciones/
+		capturas/
+			ejecucion1.png
+			ejecucion2.png
+		README.md
+		main.java
+	semana-02-gestor-tareas/
+		(por completar)
+	'''
+'''
+
 ## Autor
 Eric Robert Vargas Morales
