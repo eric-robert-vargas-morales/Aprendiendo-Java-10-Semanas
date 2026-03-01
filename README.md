@@ -22,6 +22,18 @@ Aprendiendo-Java-10-semanas
 		README.md
 		main.java
 	semana-02-gestor-tareas/
+		capturas/
+			agregar-tareas.png
+			completar-tarea.png
+			estadistica-eliminar.png
+			listar-pendientes.png
+			listar-todo.png
+		modelo/
+			Tarea.java
+		servicio/
+			GestorTareas.java
+		Main.java
+	semana-03
 		(por completar)
 	'''
 '''
