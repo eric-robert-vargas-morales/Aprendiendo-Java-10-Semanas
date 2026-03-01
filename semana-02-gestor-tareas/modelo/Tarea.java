@@ -5,9 +5,8 @@ public class Tarea {
     private int id;
     private String titulo;
     private String descripcion;
-    private String estado; // PENDIENTE o COMPLETADA
+    private String estado; 
 
-    // Constructor
     public Tarea(int id, String titulo, String descripcion) {
         this.id = id;
         setTitulo(titulo);
@@ -32,7 +31,6 @@ public class Tarea {
         return estado;
     }
 
-    // Setters con validación
     public void setTitulo(String titulo) {
         if (titulo != null && !titulo.trim().isEmpty()) {
             this.titulo = titulo;
@@ -49,7 +47,6 @@ public class Tarea {
         }
     }
 
-    // Método para completar tarea
     public void completar() {
         if (estado.equals("COMPLETADA")) {
             System.out.println("La tarea ya esta completada");
