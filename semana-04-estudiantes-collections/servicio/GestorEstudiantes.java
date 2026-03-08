@@ -111,5 +111,5 @@ public class GestorEstudiantes {
     public int getTotalEstudiantes(){
         return porCarnet.size();
     }
-
+    
 }
