@@ -12,12 +12,12 @@ public class Main {
         int opcion;
         do{
             System.out.println("\n=== SISTEMA DE ESTUDIANTES ===");
-            System.out.println("1 Agregar Estudiante");
+            System.out.println("1. Agregar Estudiante");
             System.out.println("2. Buscar por carnet");
             System.out.println("3. Actualizar promedio");
             System.out.println("4. Eliminar Estudiante");
             System.out.println("5. Ver ranking completo");
-            System.out.println("6. ver top 5");
+            System.out.println("6. Ver top 5");
             System.out.println("7. Filtrar por carrera");
             System.out.println("8. Estadisticas");
             System.out.println("9. Historial");
@@ -26,7 +26,7 @@ public class Main {
             sc.nextLine();
             
             switch (opcion) {
-                case 1: agrearEstudiante(sc, gestor); break;
+                case 1: agregarEstudiante(sc, gestor); break;
                 case 2: buscarEstudiante(sc, gestor); break;
                 case 3: actualizarPromedio(sc, gestor); break;
                 case 4: eliminarEstudiante(sc, gestor); break;
@@ -85,13 +85,13 @@ public class Main {
         g.agregar (new Estudiante ("2021001","Ana Torres", "Sistemas" ,75.5) );
         g.agregar (new Estudiante ("2021002","Carlos Quispe", "Industrial" ,88.0) );
         g.agregar (new Estudiante ("2021003","Maria Condori", "Sistemas" ,92.3) );
-        g.agregar (new Estudiante ("2021004 ","Luis Mamani", "Civil" ,61.0) );
+        g.agregar (new Estudiante ("2021004","Luis Mamani", "Civil" ,61.0) );
         g.agregar (new Estudiante ("2021005","Rosa Flores", "Industrial" ,79.5) );
         g.agregar (new Estudiante ("2021006","Pedro Vargas", "Sistemas" ,55.0) );
         g.agregar (new Estudiante ("2021007","Silvia Choque", "Civil" ,83.5) );
         g.agregar (new Estudiante ("2021008","Hugo Espejo", "Industrial" ,70.0) );
-        g.agregar (new Estudiante ("2021009 ","Patricia Lima", "Sistemas" ,95.0) );
-        g.agregar (new Estudiante ("2021010 ","Diego Arce", "Civil" ,67.5) );
+        g.agregar (new Estudiante ("2021009","Patricia Lima", "Sistemas" ,95.0) );
+        g.agregar (new Estudiante ("2021010","Diego Arce", "Civil" ,67.5) );
     }
     
 }
