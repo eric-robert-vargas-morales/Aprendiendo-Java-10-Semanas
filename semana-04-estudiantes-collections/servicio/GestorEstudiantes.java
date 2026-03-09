@@ -22,7 +22,7 @@ public class GestorEstudiantes {
         }
         porCarnet.put(e.getCarnet(), e);
         ranking.add(e);
-        historial.add("AGREGAR : " +e.getCarnet() + " - " + e.getNombre());
+        historial.add("AGREGAR : " + e.getCarnet() + " - " + e.getNombre());
         return true;
     }
 
@@ -54,7 +54,7 @@ public class GestorEstudiantes {
         System.out.println("\n=== Ranking de estudiante ===");
         int pos=1;
         for(Estudiante e : ranking){
-            System.out.println("%3d. %s%n", pos++, e);
+            System.out.printf("%3d. %s%n", pos++, e);
         }
     }
 
@@ -64,7 +64,7 @@ public class GestorEstudiantes {
         Estudiante[] arr = ranking.toArray(new Estudiante[0]);
         int inicio =Math.max(0, arr.length - 5);
         for(int i=arr.length-1; i>=inicio; i--){
-            System.out.println("%d. %s%n", ++count, arr[i]);
+            System.out.printf("%d. %s%n", ++count, arr[i]);
         }
     }
 
@@ -92,7 +92,7 @@ public class GestorEstudiantes {
             suma+= e.getPromedio();
         System.out.println("\n=== Estadisticas ===");
         System.out.println(" Total      :       " + ranking.size());
-        System.out.println(" Promedio   : %.2f%n", suma/ranking.size() );
+        System.out.printf(" Promedio   : %.2f%n", suma/ranking.size() );
         System.out.println(" Mejor      : " + ranking.last());
         System.out.println(" Peor       : " + ranking.first());
         
@@ -111,5 +111,5 @@ public class GestorEstudiantes {
     public int getTotalEstudiantes(){
         return porCarnet.size();
     }
-    
+
 }

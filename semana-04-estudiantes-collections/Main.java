@@ -58,11 +58,15 @@ public class Main {
     }
 
     private static void buscarEstudiante(Scanner sc, GestorEstudiantes g){
-        System.out.println("Carnet    :"); String carnet=sc.nextLine();
-        System.out.println("Nuevo pro :"); double prom=sc.nextDouble();
-        sc.nextLine();
-        boolean ok=g.actualizarPromedio(carnet, prom);
-        System.out.println(ok ? "Promedio actualizado" : "Carnet no encontrado");
+        System.out.println("Carnet a buscar: ");
+        Estudiante e=g.buscar(sc.nextLine());
+        if(e!=null){
+            System.out.println(e);
+        }
+        else{
+            System.out.println("Carnet no encontrado");
+        }
+
     }
 
     private static void cargarDatosPrueba(GestorEstudiantes g){
