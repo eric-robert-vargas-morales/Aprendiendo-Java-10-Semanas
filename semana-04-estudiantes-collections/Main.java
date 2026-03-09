@@ -47,7 +47,7 @@ public class Main {
         sc.close();
     }
 
-    private static void agrearEstudiante(Scanner sc, GestorEstudiantes g){
+    private static void agregarEstudiante(Scanner sc, GestorEstudiantes g){
         System.out.println("Carnet  :"); String carnet=sc.nextLine();
         System.out.println("Nombre  :"); String nombre=sc.nextLine();
         System.out.println("Carrera :"); String carrera=sc.nextLine();
@@ -67,6 +67,11 @@ public class Main {
             System.out.println("Carnet no encontrado");
         }
 
+    }
+    private static void eliminarEstudiante(Scanner sc, GestorEstudiantes g){
+        System.out.println("Carnet a eliminar: ");
+        boolean ok=g.eliminar(sc.nextLine());
+        System.out.println(ok ? "Estudiante eliminado" : "carnet no encontrado");
     }
 
     private static void cargarDatosPrueba(GestorEstudiantes g){
