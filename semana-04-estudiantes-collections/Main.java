@@ -68,6 +68,13 @@ public class Main {
         }
 
     }
+    private static void actualizarPromedio(Scanner sc, GestorEstudiantes g){
+        System.out.println("Carnet       :"); String carnet=sc.nextLine();
+        System.out.println("Nuevo prom   :"); double prom=sc.nextDouble();
+        sc.nextLine();
+        boolean ok=g.actualizarPromedio(carnet, prom);
+        System.out.println(ok ? "Promedio actualizado" : "Carnet no encontrado");
+    }
     private static void eliminarEstudiante(Scanner sc, GestorEstudiantes g){
         System.out.println("Carnet a eliminar: ");
         boolean ok=g.eliminar(sc.nextLine());
