@@ -1,6 +1,6 @@
-package modelo;
+package com.tlaprendizaje.modelo;
 
-import exception.DatoInvalidoException;
+import com.tlaprendizaje.exception.DatoInvalidoException;
 
 public class Contacto {
     private String id;

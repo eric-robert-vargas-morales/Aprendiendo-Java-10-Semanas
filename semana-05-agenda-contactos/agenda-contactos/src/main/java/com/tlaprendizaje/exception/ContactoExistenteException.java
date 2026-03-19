@@ -1,4 +1,4 @@
-package exception;
+package com.tlaprendizaje.exception;
 
 public class ContactoExistenteException extends Exception{
     private String idDuplicado;

@@ -1,4 +1,4 @@
-package exception;
+package com.tlaprendizaje.exception;
 
 public class DatoInvalidoException extends RuntimeException{
     private String campo;
