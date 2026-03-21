@@ -18,11 +18,12 @@ public class Main {
                 case 3: buscarContacto(); break;
                 case 4: eliminarContacto(); break;
                 case 5: editarContacto(); break;
-                case 6: System.out.println("hasta luego :)"); break;
+                case 6: estadistica(); break;
+                case 7: System.out.println("hasta luego :)"); break;
                 default: System.out.println("opcion no valida");
                     break;
             }
-        } while (opcion != 6);
+        } while (opcion != 7);
         sc.close();
     }
 
@@ -40,7 +41,8 @@ public class Main {
         System.out.println("3-. Buscar por ID");
         System.out.println("4-. Eliminar");
         System.out.println("5-. Editar contacto");
-        System.out.println("6-. Salir");
+        System.out.println("6-. Estadisticas");
+        System.out.println("7-. Salir");
         System.out.println("Elija una opcion: ");
     }
 
@@ -113,5 +115,17 @@ public class Main {
         } catch(DatoInvalidoException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    static void estadistica() {
+        System.out.println("=== estadisticas ===");
+        int total = agenda.total();
+        int conEmail = agenda.totalEmail();
+        int sinEmail = total-conEmail;
+
+        System.out.println("total contactos: " + total);
+        System.out.println("Con email: " + conEmail);
+        System.out.println("Sin email:" + sinEmail);
+
     }
 }
