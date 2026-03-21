@@ -1,0 +1,51 @@
+[
+  {
+    "id": "C001",
+    "nombre": "eric",
+    "telefono": "75425232",
+    "email": "eric081006@gmail.com",
+    "direccion": "av teniente leon "
+  },
+  {
+    "id": "C002",
+    "nombre": "Nashira Vargas",
+    "telefono": "72308729",
+    "email": "rnvm33@gmail.com",
+    "direccion": "Av teniente leon"
+  },
+  {
+    "id": "C003",
+    "nombre": "Valeria Vargas",
+    "telefono": "68344034",
+    "email": "valerianayelivargasmorales@gmail.com",
+    "direccion": "Av teniente leon "
+  },
+  {
+    "id": "C004",
+    "nombre": "Jimena Morales",
+    "telefono": "72479272",
+    "email": "jimena@gmail.com",
+    "direccion": "Av teniente leon"
+  },
+  {
+    "id": "C005",
+    "nombre": "Roberto",
+    "telefono": "73810967",
+    "email": "roberto@gmail.com",
+    "direccion": "Av teniente leon"
+  },
+  {
+    "id": "C006",
+    "nombre": "Alvaro Chinche",
+    "telefono": "75408740",
+    "email": "alvaro@gmail.com",
+    "direccion": "zona sud calle s/n"
+  },
+  {
+    "id": "C007",
+    "nombre": "Gregoria Morales",
+    "telefono": "68334904",
+    "email": "gregoria@gmail.com",
+    "direccion": "Rafael Pavon y Enrique collazos"
+  }
+]

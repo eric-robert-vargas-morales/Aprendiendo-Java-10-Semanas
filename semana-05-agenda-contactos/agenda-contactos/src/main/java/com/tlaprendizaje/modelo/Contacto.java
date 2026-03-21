@@ -56,6 +56,9 @@ public class Contacto {
     }
 
     public String toString() {
-        return String.format("[%s] %s - Tel: %s - Email: %s - Dir: %s", id, nombre, telefono, email, direccion);
+        return String.format("[%s] %s - Tel: %s", id, nombre, telefono);
+    }
+    public String toStringDetalle() {
+        return String.format("%s | %s | %s | %s", id, nombre, telefono, email, direccion);
     }
 }
