@@ -1,12 +1,5 @@
 [
   {
-    "id": "C001",
-    "nombre": "eric",
-    "telefono": "75425232",
-    "email": "eric081006@gmail.com",
-    "direccion": "av teniente leon "
-  },
-  {
     "id": "C002",
     "nombre": "Nashira Vargas",
     "telefono": "72308729",
@@ -61,5 +54,19 @@
     "telefono": "72478065",
     "email": "milton@gmail.com",
     "direccion": "Rafael Pavon y Enrique collazos"
+  },
+  {
+    "id": "C010",
+    "nombre": "Ruben Morales",
+    "telefono": "68345478",
+    "email": "rubencito@gmail.com",
+    "direccion": "Rafael Pavon y Enrique collazos "
+  },
+  {
+    "id": "C011",
+    "nombre": "Eric Robert Vargas Morales",
+    "telefono": "76150322",
+    "email": "eric69904@gmail.com",
+    "direccion": "Av teniente leon y enrique collazos"
   }
 ]
