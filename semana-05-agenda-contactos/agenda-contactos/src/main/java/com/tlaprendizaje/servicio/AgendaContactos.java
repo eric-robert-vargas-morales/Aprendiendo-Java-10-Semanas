@@ -24,7 +24,7 @@ public class AgendaContactos {
             throws ContactoExistenteException {
                 for (Contacto existente : contactos) {
                     if (existente.getId().equals(c.getId())) {
-                        throw new ContactosExistentesException(c.getId());
+                        throw new ContactoExistentesException(c.getId());
                     }
                 }
                 contactos.add(c);

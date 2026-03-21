@@ -38,5 +38,24 @@ public class ManejadorJSON {
             return new ArrayList<>();
         }
     }
+    public static void hacerBackup(String rutaOriginal, String rutaBackup) {
+        File original = new File(rutaOriginal);
+        if (!original.exists()) return;
 
+        try (FileReader reader = new FileReader(original);
+            FileWriter writer = new FileWriter(rutaBackup)){
+            int caracter;
+            while((caracter = reader.read()) != -1) {
+                writer.write(caracter);
+            }
+        } catch (IOException e) {
+            System.out.println("No se pudo hacer backup: " + e.getMessage());
+
+        }
+    }
+
+    public static void guardarConBackup(ArrayList<Contacto> lista, String rutaArchivo, String rutaBackup) {
+        hacerBackup(rutaArchivo, rutaBackup);
+        guardar(lista, rutaArchivo);
+    }
 }
