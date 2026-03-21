@@ -47,5 +47,19 @@
     "telefono": "68334904",
     "email": "gregoria@gmail.com",
     "direccion": "Rafael Pavon y Enrique collazos"
+  },
+  {
+    "id": "C008",
+    "nombre": "Juan Mollo",
+    "telefono": "72477064",
+    "email": "juanito@gmail.com",
+    "direccion": "Rafael Pavon y Enrique collazos"
+  },
+  {
+    "id": "C009",
+    "nombre": "Milton Morales",
+    "telefono": "72478065",
+    "email": "milton@gmail.com",
+    "direccion": "Rafael Pavon y Enrique collazos"
   }
 ]

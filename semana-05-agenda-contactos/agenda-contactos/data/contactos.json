@@ -54,5 +54,19 @@
     "telefono": "72477064",
     "email": "juanito@gmail.com",
     "direccion": "Rafael Pavon y Enrique collazos"
+  },
+  {
+    "id": "C009",
+    "nombre": "Milton Morales",
+    "telefono": "72478065",
+    "email": "milton@gmail.com",
+    "direccion": "Rafael Pavon y Enrique collazos"
+  },
+  {
+    "id": "C010",
+    "nombre": "Ruben Morales",
+    "telefono": "68345478",
+    "email": "rubencito@gmail.com",
+    "direccion": "Rafael Pavon y Enrique collazos "
   }
 ]
