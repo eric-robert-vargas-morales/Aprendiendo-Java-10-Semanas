@@ -76,4 +76,14 @@ public class AgendaContactos {
         }
         return contar;
     }
+
+    public ArrayList<Contacto> buscarPorNombre(String nombre) {
+        ArrayList<Contacto> resultados = new ArrayList<>();
+        for (Contacto c : contactos) {
+            if (c.getNombre().toLowerCase().contains(nombre.toLowerCase())) {
+                resultados.add(c);
+            }
+        }
+        return resultados;
+    }
 }

@@ -15,7 +15,7 @@ public class Main {
             switch (opcion) {
                 case 1: agregarContacto();  break;
                 case 2: listarContactos(); break;
-                case 3: buscarContacto(); break;
+                case 3: menuBusqueda(); break;
                 case 4: eliminarContacto(); break;
                 case 5: editarContacto(); break;
                 case 6: estadistica(); break;
@@ -38,7 +38,7 @@ public class Main {
         System.out.println("\n === Agenda === ");
         System.out.println("1-. Agregar contacto");
         System.out.println("2-. Listar todos");
-        System.out.println("3-. Buscar por ID");
+        System.out.println("3-. Buscar contacto");
         System.out.println("4-. Eliminar");
         System.out.println("5-. Editar contacto");
         System.out.println("6-. Estadisticas");
@@ -78,7 +78,7 @@ public class Main {
         for (var c : lista) System.out.println(c);
     }
 
-    static void buscarContacto() {
+    static void buscarId() {
         System.out.println("ID a buscar: ");
         String id = sc.nextLine();
         try {
@@ -127,5 +127,32 @@ public class Main {
         System.out.println("Con email: " + conEmail);
         System.out.println("Sin email:" + sinEmail);
 
+    }
+    static void menuBusqueda() {
+        System.out.println("\nBuscar por:");
+        System.out.println("1. ID");
+        System.out.println("2. Nombre");
+        System.out.println("Opción: ");
+        int op = leerOpcion();
+        switch (op) {
+            case 1: buscarId(); break;
+            case 2: buscarNombre(); break;
+            default: System.out.println("Opción inválida");
+        }
+    }
+
+    static void buscarNombre() {
+        System.out.println("Ingrese nombre o parte del nombre: ");
+        String nombre = sc.nextLine();
+        var resultados = agenda.buscarPorNombre(nombre);
+
+        if (resultados.isEmpty()) {
+            System.out.println("No se encontraron coincidencias");
+            return;
+        }
+        System.out.println("\nResultados (" + resultados.size() + " encontrados):");
+        for (var c : resultados) {
+            System.out.println(c);
+        }
     }
 }
