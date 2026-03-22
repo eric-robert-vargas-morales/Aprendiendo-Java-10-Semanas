@@ -12,7 +12,7 @@ ingenieria Informatica - Universidad Tecnica de Oruro.
 | 4      | Colection Framework    | semana-04-estudiantes-collections |
 
 ## Estructura del Repositorio
-'''
+```
 Aprendiendo-Java-10-semanas
 	README.md
 	.gitignore
@@ -73,10 +73,43 @@ Aprendiendo-Java-10-semanas
 			GestorEstudiantes.java
 		Main.java
 		README.md
-	Semana-05
+	Semana-05-agenda-contactos
+		agenda-contactos/
+			capturas/
+				Agregar-contacto.png
+				Buscar.png
+				Editar.png
+				Eliminar.png
+				Estadisticas.png
+				Listar-todo.png
+			data/
+				contactos.backup.json
+				contactos.json
+			src/
+				main/
+					java/
+						com/tlaprendizaje/
+							exception/
+								ContactoExistenteException.java
+								ContactoNoEncontradoException.java
+								DatoInvalidoException.java
+							modelo/
+								contacto.java
+							servicio/
+								AgendaContactos.java
+							util/
+								ManejadorJSON.java
+							Main.java
+					resources/
+				test/
+					java/
+			target/
+			pom.xml
+			README.md
+	semana-06/
 		(por completar)
-	'''
-'''
+	
+```
 
 ## Autor
 Eric Robert Vargas Morales
