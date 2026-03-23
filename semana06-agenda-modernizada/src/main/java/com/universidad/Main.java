@@ -1,6 +1,8 @@
 package com.universidad;
 import com.universidad.modelo.Contacto;
 import com.universidad.exception.*;
+
+import java.util.Optional;
 import java.util.Scanner;
 import com.universidad.servicio.AgendaContactos;
 public class Main {
@@ -144,15 +146,8 @@ public class Main {
     static void buscarNombre() {
         System.out.println("Ingrese nombre o parte del nombre: ");
         String nombre = sc.nextLine();
-        var resultados = agenda.buscarPorNombre(nombre);
 
-        if (resultados.isEmpty()) {
-            System.out.println("No se encontraron coincidencias");
-            return;
-        }
-        System.out.println("\nResultados (" + resultados.size() + " encontrados):");
-        for (var c : resultados) {
-            System.out.println(c);
-        }
+        Optional<Contacto> c = agenda.buscarPorNombre(nombre);
+        System.out.println(c.orElse(null));
     }
 }

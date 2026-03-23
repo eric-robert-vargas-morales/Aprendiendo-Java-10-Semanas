@@ -4,6 +4,10 @@ import com.universidad.modelo.Contacto;
 import com.universidad.util.ManejadorJSON;
 import com.universidad.exception.*;
 import java.util.ArrayList;
+import java.util.Optional;
+import java.util.Comparator;
+import java.util.stream.*;
+
 public class AgendaContactos {
     private static final String ARCHIVO = "data/contactos.json";
     private static final String BACKUP = "data/contactos.backup.json";
@@ -28,9 +32,14 @@ public class AgendaContactos {
 
     public void agregar(String nombre, String tel, String email, String dir)
             throws ContactoExistenteException {
-
-    String id = generarId();
-
+            
+        boolean existe = contactos.stream()
+            .anyMatch(c -> c.getNombre()
+                .equalsIgnoreCase(c.getNombre()));
+        if (existe) {
+            throw new ContactoExistenteException(nombre);
+        }
+    String id= generarId();
     Contacto c = new Contacto(id, nombre, tel, email, dir);
     contactos.add(c);
     persistir();
@@ -77,13 +86,10 @@ public class AgendaContactos {
         return contar;
     }
 
-    public ArrayList<Contacto> buscarPorNombre(String nombre) {
-        ArrayList<Contacto> resultados = new ArrayList<>();
-        for (Contacto c : contactos) {
-            if (c.getNombre().toLowerCase().contains(nombre.toLowerCase())) {
-                resultados.add(c);
-            }
-        }
-        return resultados;
+    public Optional<Contacto> buscarPorNombre(String nombre) {
+        return contactos.stream()
+                .filter(c -> c.getNombre()
+                    .equalsIgnoreCase(nombre))
+                .findFirst();
     }
 }
