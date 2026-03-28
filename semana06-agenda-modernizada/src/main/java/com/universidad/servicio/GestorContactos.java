@@ -4,6 +4,7 @@ import com.universidad.modelo.Contacto;
 import com.universidad.util.ManejadorJSON;
 import com.universidad.exception.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Optional;
 import java.util.List;
 import java.util.stream.*;
@@ -48,10 +49,10 @@ public class GestorContactos {
 
     public Contacto buscar(String id)
             throws ContactoNoEncontradoException {
-                for (Contacto c : contactos){
-                    if (c.getId().equals(id)) return c;
-                }
-            throw new ContactoNoEncontradoException("No existe contacto con ID: " + id);
+            return contactos.stream()
+                .filter(c -> c.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new ContactoNoEncontradoException("No existe ID: " + id));
             }
 
     public void eliminar(String id)
@@ -77,13 +78,10 @@ public class GestorContactos {
         return contactos.size();
     }
 
-    public int totalEmail() {
-        int contar = 0;
-        for (Contacto c : contactos) {
-            if (c.getEmail() != null && !c.getEmail().isEmpty())
-                contar++;
-        }
-        return contar;
+    public long totalEmail() {
+        return contactos.stream()
+            .filter(c -> c.getEmail() != null && !c.getEmail().isEmpty())
+            .count();
     }
 
     public Optional<Contacto> buscarPorNombre(String nombre) {
@@ -104,7 +102,18 @@ public class GestorContactos {
             .filter(c -> c.getCategoria().equalsIgnoreCase(cat))
             .collect(Collectors.toList());
     }
+    
+    public long contarPorCategoria(String categoria){
+        return contactos.stream()
+            .filter(c -> c.getCategoria()
+                .equalsIgnoreCase(categoria))
+            .count();
+    }
 
+    public List<Contacto> listarOrdenados() {
+        return contactos.stream()
+            .sorted(Comparator.comparing(Contacto::getNombre))
+            .collect(Collectors.toList());
 
-
+    }
 }
