@@ -2,6 +2,7 @@ package com.universidad;
 import com.universidad.modelo.Contacto;
 import com.universidad.exception.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 import com.universidad.servicio.GestorContactos;
@@ -21,11 +22,15 @@ public class Main {
                 case 4: eliminarContacto(); break;
                 case 5: editarContacto(); break;
                 case 6: estadistica(); break;
-                case 7: System.out.println("hasta luego :)"); break;
+                case 7: listarOrdenados(); break;
+                case 8: filtrarPorCategoria(); break;
+                case 9: mostrarNombres(); break;
+                case 10: contarPorCategoria(); break;
+                case 11: System.out.println("hasta luego :)"); break;
                 default: System.out.println("opcion no valida");
                     break;
             }
-        } while (opcion != 7);
+        } while (opcion != 11);
         sc.close();
     }
 
@@ -44,7 +49,11 @@ public class Main {
         System.out.println("4-. Eliminar");
         System.out.println("5-. Editar contacto");
         System.out.println("6-. Estadisticas");
-        System.out.println("7-. Salir");
+        System.out.println("7-. Listar ordenados");
+        System.out.println("8-. Filtrar por categoria");
+        System.out.println("9-. Mostrar nombres");
+        System.out.println("10-. Contar por categoria");
+        System.out.println("11-. Salir");
         System.out.println("Elija una opcion: ");
     }
 
@@ -152,4 +161,35 @@ public class Main {
         Optional<Contacto> c = agenda.buscarPorNombre(nombre);
         System.out.println(c.orElse(null));
     }
+
+    static void listarOrdenados() {
+        agenda.listarOrdenados().forEach(System.out::println);
+    }
+
+    static void filtrarPorCategoria() {
+        System.out.print("Categoría: ");
+        String cat = sc.nextLine();
+
+        List<Contacto> lista = agenda.filtrarPorCategoria(cat);
+
+        if (lista.isEmpty()) {
+            System.out.println("No hay contactos en esa categoría");
+        } else {
+            lista.forEach(System.out::println);
+        }
+    }
+
+    static void mostrarNombres() {
+        List<String> nombres = agenda.obtenerNombres();
+        nombres.forEach(System.out::println);
+    }
+
+    static void contarPorCategoria() {
+        System.out.print("Categoría: ");
+        String cat = sc.nextLine();
+
+        long total = agenda.contarPorCategoria(cat);
+        System.out.println("Cantidad: " + total);
+    }
+    
 }
