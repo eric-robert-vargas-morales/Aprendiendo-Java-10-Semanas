@@ -22,13 +22,5 @@
     "email": "beatriz@mail.com",
     "direccion": "Calle 3",
     "categoria": "Trabajo"
-  },
-  {
-    "id": "C004",
-    "nombre": "David Cruz",
-    "telefono": "72223344",
-    "email": "david@mail.com",
-    "direccion": "Calle 4",
-    "categoria": "Familia"
   }
 ]

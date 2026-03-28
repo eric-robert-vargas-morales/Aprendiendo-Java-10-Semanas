@@ -10,17 +10,24 @@ import java.util.List;
 import java.util.stream.*;
 
 public class GestorContactos {
-    private static final String ARCHIVO = "data/contactos.json";
-    private static final String BACKUP = "data/contactos.backup.json";
+    private static final String ARCHIVO = "datos/contactos.json";
+    private static final String BACKUP = "datos/contactos.backup.json";
 
     private ArrayList<Contacto> contactos;
     private int contadorId = 1;
 
-    public GestorContactos(){
-        contactos = ManejadorJSON.cargar(ARCHIVO);
+    public GestorContactos(boolean usarArchivo) {
+        if (usarArchivo) {
+            contactos = ManejadorJSON.cargar(ARCHIVO);
+        } else {
+            contactos = new ArrayList<>();
+        }
         contadorId = contactos.size() + 1;
-        System.out.println("Agenda cargada con " + contactos.size() + " contactos ");
+    }
 
+    
+    public GestorContactos() {
+        this(true);
     }
     
     private void persistir() {
@@ -32,13 +39,13 @@ public class GestorContactos {
     }
 
     public void agregar(String nombre, String tel, String email, String dir, String cat)
-            throws ContactoExistenteException {
+            throws ContactoDuplicadoException {
             
         boolean existe = contactos.stream()
             .anyMatch(c -> c.getNombre()
-                .equalsIgnoreCase(c.getNombre()));
+                .equalsIgnoreCase(nombre));
         if (existe) {
-            throw new ContactoExistenteException(nombre);
+            throw new ContactoDuplicadoException(nombre);
         }
     String id= generarId();
     Contacto c = new Contacto(id, nombre, tel, email, dir, cat);

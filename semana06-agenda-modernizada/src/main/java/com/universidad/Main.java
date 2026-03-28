@@ -65,7 +65,7 @@ public class Main {
 
             agenda.agregar(nombre, tel, email, dir, cat);
             System.out.println("Contacto guardado: ");
-        } catch (ContactoExistenteException e) {
+        } catch (ContactoDuplicadoException e) {
             System.out.println("error: " + e.getMessage());
         } catch (DatoInvalidoException e){
             System.out.println("Dato invalido es '" + e.getMessage() + "': " + e.getMessage());
@@ -79,7 +79,7 @@ public class Main {
             return;
         }
         System.out.println("\n=== CONTACTOS (" + lista.size() + ") ===");
-        for (var c : lista) System.out.println(c);
+        lista.forEach(System.out::println);
     }
 
     static void buscarId() {
@@ -124,8 +124,8 @@ public class Main {
     static void estadistica() {
         System.out.println("=== estadisticas ===");
         int total = agenda.total();
-        int conEmail = agenda.totalEmail();
-        int sinEmail = total-conEmail;
+        long conEmail = agenda.totalEmail();
+        long sinEmail = total-conEmail;
 
         System.out.println("total contactos: " + total);
         System.out.println("Con email: " + conEmail);
