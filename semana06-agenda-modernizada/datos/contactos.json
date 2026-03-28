@@ -30,13 +30,5 @@
     "email": "david@mail.com",
     "direccion": "Calle 4",
     "categoria": "Familia"
-  },
-  {
-    "id": "C005",
-    "nombre": "Eric Robert",
-    "telefono": "76150322",
-    "email": "eric69904@gmail.com",
-    "direccion": "Av teniente leon y enrique collazos",
-    "categoria": "Amigo"
   }
 ]
