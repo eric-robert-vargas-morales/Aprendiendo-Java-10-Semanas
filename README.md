@@ -10,6 +10,8 @@ ingenieria Informatica - Universidad Tecnica de Oruro.
 | 2		 | POO Fundamentos 	| semana-02-gestor-tareas /	|
 | 3		 | Gestion de Vehiculos POO 	| semana-03-vehiculos-poo	|
 | 4      | Colection Framework    | semana-04-estudiantes-collections |
+| 5      | Exception y JSON  | semana-05-agenda-contactos |
+| 6      | Java Moderno + testing | semana06-agenda-modernizada |
 
 ## Estructura del Repositorio
 ```
@@ -106,7 +108,36 @@ Aprendiendo-Java-10-semanas
 			target/
 			pom.xml
 			README.md
-	semana-06/
+	semana06-agenda-modernizada/
+		capturas/
+			contar-categoria.png
+			filtrar.png
+			listar-ordenado.png
+			mostrar.png
+		datos/
+			contactos.backup.json
+			contactos.json
+		src/
+			main/
+				java/com/universidad/
+					exception/
+						ContactoDuplicadoExceptio.java
+						ContactoExistenteException.java
+						ContactoNoEncontradoException.java
+						DatoInvalidoException.java
+					modelo/
+						Contacto.java
+					servicio/
+						GestorContactos.java
+					util/
+						ManejadorJSON.java
+					Main.java
+			test/
+				java/servicio/
+					GestorContactoTest.java
+		pom.xml
+		README.md
+	semana-07/
 		(por completar)
 	
 ```
