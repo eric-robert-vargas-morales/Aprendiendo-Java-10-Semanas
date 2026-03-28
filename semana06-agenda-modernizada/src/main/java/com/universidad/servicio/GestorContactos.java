@@ -5,17 +5,17 @@ import com.universidad.util.ManejadorJSON;
 import com.universidad.exception.*;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.Comparator;
+import java.util.List;
 import java.util.stream.*;
 
-public class AgendaContactos {
+public class GestorContactos {
     private static final String ARCHIVO = "data/contactos.json";
     private static final String BACKUP = "data/contactos.backup.json";
 
     private ArrayList<Contacto> contactos;
     private int contadorId = 1;
 
-    public AgendaContactos(){
+    public GestorContactos(){
         contactos = ManejadorJSON.cargar(ARCHIVO);
         contadorId = contactos.size() + 1;
         System.out.println("Agenda cargada con " + contactos.size() + " contactos ");
@@ -30,7 +30,7 @@ public class AgendaContactos {
         return String.format("C%03d", contadorId++);
     }
 
-    public void agregar(String nombre, String tel, String email, String dir)
+    public void agregar(String nombre, String tel, String email, String dir, String cat)
             throws ContactoExistenteException {
             
         boolean existe = contactos.stream()
@@ -40,7 +40,7 @@ public class AgendaContactos {
             throw new ContactoExistenteException(nombre);
         }
     String id= generarId();
-    Contacto c = new Contacto(id, nombre, tel, email, dir);
+    Contacto c = new Contacto(id, nombre, tel, email, dir, cat);
     contactos.add(c);
     persistir();
     System.out.println("Contacto agregado con ID: " + id);
@@ -92,4 +92,19 @@ public class AgendaContactos {
                     .equalsIgnoreCase(nombre))
                 .findFirst();
     }
+
+    public ArrayList<String> obtenerNombres() {
+        return contactos.stream()
+                .map(Contacto::getNombre)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public List<Contacto> filtrarPorCategoria(String cat) {
+        return contactos.stream()
+            .filter(c -> c.getCategoria().equalsIgnoreCase(cat))
+            .collect(Collectors.toList());
+    }
+
+
+
 }

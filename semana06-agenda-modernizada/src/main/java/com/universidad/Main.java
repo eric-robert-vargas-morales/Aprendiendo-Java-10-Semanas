@@ -4,9 +4,9 @@ import com.universidad.exception.*;
 
 import java.util.Optional;
 import java.util.Scanner;
-import com.universidad.servicio.AgendaContactos;
+import com.universidad.servicio.GestorContactos;
 public class Main {
-    static AgendaContactos agenda = new AgendaContactos();
+    static GestorContactos agenda = new GestorContactos();
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int opcion;
@@ -59,9 +59,11 @@ public class Main {
             String email = sc.nextLine();
             System.out.println("Direccion");
             String dir = sc.nextLine();
+            System.out.println("Categoria");
+            String cat = sc.nextLine();
 
 
-            agenda.agregar(nombre, tel, email, dir);
+            agenda.agregar(nombre, tel, email, dir, cat);
             System.out.println("Contacto guardado: ");
         } catch (ContactoExistenteException e) {
             System.out.println("error: " + e.getMessage());

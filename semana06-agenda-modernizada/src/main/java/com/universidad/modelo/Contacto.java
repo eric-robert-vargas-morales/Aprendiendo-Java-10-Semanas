@@ -9,13 +9,15 @@ public class Contacto {
     private String telefono;
     private String email;
     private String direccion;
+    private String categoria;
     
-    public Contacto(String id, String nombre, String telefono, String email, String direccion) {
+    public Contacto(String id, String nombre, String telefono, String email, String direccion, String categoria) {
         setId(id);
         setNombre(nombre);
         setTelefono(telefono);
         setEmail(email);
         setDireccion(direccion);
+        setCategoria(categoria);
     }
 
     public String getId()       { return id; }
@@ -23,6 +25,7 @@ public class Contacto {
     public String getTelefono() { return telefono; }
     public String getEmail()    { return email; }
     public String getDireccion(){ return direccion;}
+    public String getCategoria(){ return categoria; }
 
     public void setId(String id) {
         if (id == null || id.trim().isEmpty()) {
@@ -56,8 +59,16 @@ public class Contacto {
         this.direccion = direccion;
     }
 
+    public void setCategoria(String categoria) {
+        if (categoria == null || categoria.trim().isEmpty()) {
+            throw new DatoInvalidoException("categoria", "no puede estar vacio");
+        }
+        this.categoria = categoria.trim();
+
+    }
+
     public String toString() {
-        return String.format("[%s] %s - Tel: %s", id, nombre, telefono);
+        return String.format("[%s] %s - Tel: %s (%s)", id, nombre, telefono, categoria);
     }
     public String toStringDetalle() {
         return String.format("%s | %s | %s | %s", id, nombre, telefono, email, direccion);
