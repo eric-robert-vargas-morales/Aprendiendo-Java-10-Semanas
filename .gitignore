@@ -7,6 +7,10 @@ out/
 bin/
 target/
 
+# Vaadin
+frontend/generated/
+node_modules/
+
 # Archivos de IDE
 .idea/
 .vscode/
