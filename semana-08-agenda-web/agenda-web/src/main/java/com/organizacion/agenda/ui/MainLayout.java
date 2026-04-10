@@ -16,9 +16,16 @@ public class MainLayout extends AppLayout {
     public MainLayout() {
         H2 titulo = new H2("Agenda de Contactos");
 
-        
+        MenuBar menu = new MenuBar();
+        menu.addItem(new RouterLink("Inicio", InicioView.class));
+        menu.addItem(new RouterLink("Contactos", ContactosView.class));
 
-        addToNavbar(titulo);
+        HorizontalLayout barra = new HorizontalLayout(titulo, menu);
+        barra.setWidthFull();
+        barra.expand(titulo);
+        barra.setAlignItems(FlexComponent.Alignment.CENTER);
+
+        addToNavbar(barra);
 
     }
     
