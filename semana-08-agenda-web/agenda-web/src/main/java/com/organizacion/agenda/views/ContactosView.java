@@ -1,29 +1,36 @@
 package com.organizacion.agenda.views;
 
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.html.H1;
+import com.organizacion.agenda.ui.MainLayout;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Paragraph;
-import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.FlexLayout;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
-@Route("contactos")
+@Route(value = "contactos", layout = MainLayout.class)
 public class ContactosView extends VerticalLayout {
 
     public ContactosView(){
-        setPadding(true);
+        setSizeFull();
         setSpacing(true);
 
-        H1 titulo = new H1("Contactos");
-        Paragraph mensaje = new Paragraph("Aqui apareceran los contactos. Proxima semana");
+        H2 titulo = new H2("Contactos");
+        Paragraph descripcion = new Paragraph("Gestiona todos tus contactos en un solo lugar");
+        H3 subtitulo = new H3("Mis contactos");
 
-        Button volver = new Button("volver al inicio");
-        volver.addClickListener(e -> getUI().ifPresent(ui -> ui.navigate("")));
+        VerticalLayout contenido = new VerticalLayout(titulo, descripcion, subtitulo);
+        contenido.setPadding(false);
 
-        Notification.show("Vista de contactos cargada");
+        Div footer = new Div(new Span("Agenda de Contactos v1.0"));
+        footer.setWidthFull();
 
-        add(titulo, mensaje, volver);
+        add(contenido, footer);
+        expand(contenido);
 
     }
     
