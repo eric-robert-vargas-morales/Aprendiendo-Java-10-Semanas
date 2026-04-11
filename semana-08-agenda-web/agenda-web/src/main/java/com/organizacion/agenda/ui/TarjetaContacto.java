@@ -11,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class TarjetaContacto extends Div{
     public TarjetaContacto(String nombre, String telefono, String email){
+        setWidth("250px");
         Avatar avatar = new Avatar(nombre);
         avatar.setWidth("48px");
         avatar.setHeight("48px");
