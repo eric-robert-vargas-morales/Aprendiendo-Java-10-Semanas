@@ -13,6 +13,7 @@ ingenieria Informatica - Universidad Tecnica de Oruro.
 | 5      | Exception y JSON  | semana-05-agenda-contactos |
 | 6      | Java Moderno + testing | semana06-agenda-modernizada |
 | 7      | Vaadin - Primera App Web | semana-07-agenda-web |
+| 8      | Vaadin - Estructura y componentes | semana-08-agenda-web |
 
 ## Estructura del Repositorio
 ```
@@ -151,7 +152,24 @@ Aprendiendo-Java-10-semanas
 			image-2.png
 			pom.xml
 			README.md
-	semana08/
+	semana-08-agenda-web/
+		agenda-web/
+			src/
+				main/
+					java/com/organizacion/agenda/
+						ui/
+							MainLayout.java
+							TarjetaContacto.java
+						view/
+							ContactosView.java
+							InicioView.java
+						Application.java
+			pom.xml
+		capturas/
+			Incio.png
+			Contactos.png
+		README.md
+	semana-09/
 		(por completar)
 	
 ```
