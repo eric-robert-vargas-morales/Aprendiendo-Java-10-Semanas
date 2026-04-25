@@ -1,20 +1,27 @@
 package com.organizacion.agenda.views;
 
-import com.organizacion.agenda.ui.MainLayout;
-import com.organizacion.agenda.ui.TarjetaContacto;
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.H2;
-import com.vaadin.flow.component.html.H3;
-import com.vaadin.flow.component.html.Paragraph;
-import com.vaadin.flow.component.html.Span;
-import com.vaadin.flow.component.orderedlayout.FlexComponent;
-import com.vaadin.flow.component.orderedlayout.FlexLayout;
+import com.organizacion.agenda.modelo.Contacto;
+import com.organizacion.agenda.service.ContactoService;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.textfield.EmailField;
+import com.vaadin.flow.component.textfield.NumberField;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 @Route(value = "contactos", layout = MainLayout.class)
 public class ContactosView extends VerticalLayout {
+
+    private final ContactoService servicio;
+
+    private TextField campoNombre = new TextField("nombre completo");
+    private EmailField campoEmail = new EmailField("correo electronico");
+    private NumberField campoTelef = new NumberField("telefono");
 
     public ContactosView(){
         setSizeFull();
