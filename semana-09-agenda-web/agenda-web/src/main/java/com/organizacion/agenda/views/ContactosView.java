@@ -26,6 +26,7 @@ public class ContactosView extends VerticalLayout {
     private NumberField campoTelef = new NumberField("telefono");
 
     public ContactosView(){
+        this.servicio = servicio;
 
         campoNombre.setPlaceholder("Ej: Eric Vargas");
         campoEmail.setPlaceholder("Ej: eric@correo.com");
@@ -35,6 +36,8 @@ public class ContactosView extends VerticalLayout {
         campoEmail.setWidthFull();
         campoTelef.setWidthFull();
 
+        configurarBinder();
+
         FormLayout formulario = new FormLayout();
         formulario.add(campoNombre, campoEmail, campoTelef);
         formulario.setColspan(campoNombre, 2);
@@ -43,5 +46,22 @@ public class ContactosView extends VerticalLayout {
         setWidthFull();
 
     }
+
+    private void configurarBinder(){
+        binder.forField(campoNombre)
+            .asRequired("El nombre no puede estar vacio")
+            .bind(Contacto::getNombre, Contacto::setNombre);
+
+        binder.forField(campoEmail)
+            .bind(Contacto::getEmail, Contacto::setEmail);
+
+        binder.forField(campoTelef)
+            .withConverter(
+                v -> v == null ? "" : String.valueOf(v.intValue()),
+                t -> t == null || t.isEmpty() ? null : Double.valueOf(t)
+            )
+            .bind(Contacto::getTelefono, Contacto::setTelefono);
+    }
+    
     
 }
