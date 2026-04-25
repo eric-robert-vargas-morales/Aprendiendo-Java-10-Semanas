@@ -1,5 +1,7 @@
 package com.organizacion.agenda.views;
 
+import java.text.Normalizer.Form;
+
 import com.organizacion.agenda.modelo.Contacto;
 import com.organizacion.agenda.service.ContactoService;
 import com.vaadin.flow.component.button.Button;
@@ -24,31 +26,21 @@ public class ContactosView extends VerticalLayout {
     private NumberField campoTelef = new NumberField("telefono");
 
     public ContactosView(){
-        setSizeFull();
-        setSpacing(true);
 
-        H2 titulo = new H2("Contactos");
-        Paragraph descripcion = new Paragraph("Gestiona todos tus contactos en un solo lugar");
-        H3 subtitulo = new H3("Mis contactos");
+        campoNombre.setPlaceholder("Ej: Eric Vargas");
+        campoEmail.setPlaceholder("Ej: eric@correo.com");
+        campoTelef.setPlaceholder("Ej: 76150322");
 
-        FlexLayout cuadricula = new FlexLayout();
-        cuadricula.setFlexWrap(FlexLayout.FlexWrap.WRAP);
-        cuadricula.setWidthFull();
+        campoNombre.setWidthFull();
+        campoEmail.setWidthFull();
+        campoTelef.setWidthFull();
 
-        cuadricula.add(new TarjetaContacto("Eric Vargas", "76150322", "eric69904@email.com"), 
-                       new TarjetaContacto("Nashira Vargas", "75425232", "rnvm@email.com"), 
-                       new TarjetaContacto("Valeria Vargas", "68334904", "valerianayeli@email.com"), 
-                       new TarjetaContacto("Roberto Vargas", "73810967", "jrobertvn@email.com"), 
-                       new TarjetaContacto("Jimena Morales", "72479272", "gjmm@email.com"));
-
-        VerticalLayout contenido = new VerticalLayout(titulo, descripcion, subtitulo, cuadricula);
-        contenido.setPadding(false);
-
-        Div footer = new Div(new Span("Agenda de Contactos v1.0"));
-        footer.setWidthFull();
-
-        add(contenido, footer);
-        expand(contenido);
+        FormLayout formulario = new FormLayout();
+        formulario.add(campoNombre, campoEmail, campoTelef);
+        formulario.setColspan(campoNombre, 2);
+        formulario.setWidthFull();
+        add(formulario);
+        setWidthFull();
 
     }
     
