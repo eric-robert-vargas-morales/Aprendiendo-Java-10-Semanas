@@ -42,7 +42,15 @@ public class ContactosView extends VerticalLayout {
         formulario.add(campoNombre, campoEmail, campoTelef);
         formulario.setColspan(campoNombre, 2);
         formulario.setWidthFull();
-        add(formulario);
+
+        Button btnGuardar = new Button("Guardar Contacto");
+        Button btnLimpiar = new Button("Limpiar");
+
+        btnGuardar.addClickListener(e -> guardar());
+        btnLimpiar.addClickListener(e -> limpiar());
+
+        HorizontalLayout botones = new HorizontalLayout(btnGuardar, btnLimpiar);
+        add(formulario, botones);
         setWidthFull();
 
     }
@@ -62,6 +70,22 @@ public class ContactosView extends VerticalLayout {
             )
             .bind(Contacto::getTelefono, Contacto::setTelefono);
     }
-    
+
+    private void guardar(){
+        Contacto contacto = new Contacto();
+        try{
+            binder.writeBean(contacto);
+            servicio.guardar(contacto);
+            Notification.show("Guardado: " + contacto.getNombre());
+            limpiar();
+        } catch (ValidationException e){
+            
+        }
+    }
+
+    private void limpiar(){
+        binder.readBean(new Contacto());
+    }
+
     
 }
