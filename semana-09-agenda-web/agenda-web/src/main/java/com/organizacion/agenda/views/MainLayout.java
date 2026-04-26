@@ -1,8 +1,5 @@
 package com.organizacion.agenda.views;
 
-import com.organizacion.agenda.modelo.Contacto;
-import com.organizacion.agenda.service.ContactoService;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.menubar.MenuBar;
