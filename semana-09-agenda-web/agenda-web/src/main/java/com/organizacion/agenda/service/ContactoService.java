@@ -1,12 +1,11 @@
 package com.organizacion.agenda.service;
 
 import com.organizacion.agenda.modelo.Contacto;
-import com.springframework.stereotype.Service;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.arch.Processor.Arch;
 @Service
 public class ContactoService {
 
@@ -17,11 +16,11 @@ public class ContactoService {
         this.manejador = new ManejadorJSON(ARCHIVO);
     }
 
-    public List<Contacto> obtenetTodos() {
-        this.manejador.cargar();
+    public List<Contacto> obtenerTodos() {
+        return this.manejador.cargar();
     }
 
-    public List<Contacto> buscarPorNombre(String nombre) {
+    public List<Contacto> buscarPorNombre(String texto) {
         String filtro = texto.toLowerCase();
         return manejador.cargar().stream()
                 .filter(c -> c.getNombre().toLowerCase().contains(filtro))
