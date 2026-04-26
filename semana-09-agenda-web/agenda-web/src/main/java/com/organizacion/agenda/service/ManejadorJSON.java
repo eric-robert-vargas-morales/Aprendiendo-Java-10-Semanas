@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.reflect.Type;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class ManejadorJSON {
                         .create();
     }
 
-    public static void guardar(List<Contacto> lista){
+    public void guardar(List<Contacto> lista){
         try (FileWriter writer = new FileWriter(this.rutaArchivo)){
             gson.toJson(lista, writer);
         } catch (IOException e){
@@ -31,7 +31,7 @@ public class ManejadorJSON {
         }
     }
     
-    public static List<Contacto> cargar(){
+    public List<Contacto> cargar(){
         File archivo = new File(this.rutaArchivo);
 
         if(!archivo.exists()) {
@@ -48,24 +48,5 @@ public class ManejadorJSON {
             return new ArrayList<>();
         }
     }
-    public static void hacerBackup(String rutaOriginal, String rutaBackup) {
-        File original = new File(rutaOriginal);
-        if (!original.exists()) return;
-
-        try (FileReader reader = new FileReader(original);
-            FileWriter writer = new FileWriter(rutaBackup)){
-            int caracter;
-            while((caracter = reader.read()) != -1) {
-                writer.write(caracter);
-            }
-        } catch (IOException e) {
-            System.out.println("No se pudo hacer backup: " + e.getMessage());
-
-        }
-    }
-
-    public static void guardarConBackup(ArrayList<Contacto> lista, String rutaArchivo, String rutaBackup) {
-        hacerBackup(rutaArchivo, rutaBackup);
-        guardar(lista, rutaArchivo);
-    }
+    
 }
