@@ -1,6 +1,5 @@
 package com.organizacion.agenda.views;
 
-import com.organizacion.agenda.ui.MainLayout;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
@@ -29,7 +28,7 @@ public class InicioView extends VerticalLayout{
 
         contenido.add(titulo, descripcion, instruccion);
 
-        Div footer = new Div(new Span("Agenda de contactos v1.0"));
+        Div footer = new Div(new Span("Agenda de contactos v1.1"));
         footer.setWidthFull();
 
         add(contenido, footer);

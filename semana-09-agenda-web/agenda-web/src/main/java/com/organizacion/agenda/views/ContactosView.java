@@ -25,7 +25,8 @@ public class ContactosView extends VerticalLayout {
     private EmailField campoEmail = new EmailField("correo electronico");
     private NumberField campoTelef = new NumberField("telefono");
 
-    public ContactosView(){
+    private Binder<Contacto> binder = new Binder<>(Contacto.class);
+    public ContactosView(ContactoService servicio) {
         this.servicio = servicio;
 
         campoNombre.setPlaceholder("Ej: Eric Vargas");
