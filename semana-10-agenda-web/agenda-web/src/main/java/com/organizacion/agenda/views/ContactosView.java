@@ -5,6 +5,7 @@ import com.organizacion.agenda.modelo.Contacto;
 import com.organizacion.agenda.service.ContactoService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.NumberField;
@@ -24,18 +25,15 @@ public class ContactosView extends VerticalLayout {
     private EmailField campoEmail = new EmailField("correo electronico");
     private NumberField campoTelef = new NumberField("telefono");
 
+    private Grid<Contacto> grid = new Grid<>(Contacto.class, false);
+
+    private Contacto contactoEditando = null;
+
     private Binder<Contacto> binder = new Binder<>(Contacto.class);
     public ContactosView(ContactoService servicio) {
         this.servicio = servicio;
 
-        campoNombre.setPlaceholder("Ej: Eric Vargas");
-        campoEmail.setPlaceholder("Ej: eric@correo.com");
-        campoTelef.setPlaceholder("Ej: 76150322");
-
-        campoNombre.setWidthFull();
-        campoEmail.setWidthFull();
-        campoTelef.setWidthFull();
-
+        configurarCampos();
         configurarBinder();
 
         FormLayout formulario = new FormLayout();
@@ -52,7 +50,16 @@ public class ContactosView extends VerticalLayout {
         HorizontalLayout botones = new HorizontalLayout(btnGuardar, btnLimpiar);
         add(formulario, botones);
         setWidthFull();
+        configurarGrid();
 
+    }
+    private void configurarCampos(){
+        campoNombre.setPlaceholder("Ej: Eric Vargas");
+        campoEmail.setPlaceholder("Ej: eric@correo.com");
+        campoTelef.setPlaceholder("Ej: 76150322");
+        campoNombre.setWidthFull();
+        campoEmail.setWidthFull();
+        campoTelef.setWidthFull();
     }
 
     private void configurarBinder(){
@@ -71,6 +78,22 @@ public class ContactosView extends VerticalLayout {
             .bind(Contacto::getTelefono, Contacto::setTelefono);
     }
 
+    private void configurarGrid(){
+        grid.addColumn(Contacto::getNombre).setHeader("Nombre").setSortable(true).setFlexGrow(2);
+        grid.addColumn(Contacto::getEmail).setHeader("Correo").setSortable(true).setFlexGrow(2);
+        grid.addColumn(Contacto::getTelefono).setHeader("Telefono").setFlexGrow(1);
+        grid.setWidthFull();
+        grid.setHeight("260px");
+
+        grid.asSingleSelect().addValueChangeListener(e -> {
+            Contacto c = e.getValue();
+            if (c != null){
+                binder.readBean(c);
+                contactoEditando = c;
+            }
+        });
+    }
+
     private void guardar(){
         Contacto contacto = new Contacto();
         try{
@@ -87,5 +110,8 @@ public class ContactosView extends VerticalLayout {
         binder.readBean(new Contacto());
     }
 
+    private void refrescarGrid(){
+        grid.setItems(servicio.obtenerTodos());
+    }
     
 }
