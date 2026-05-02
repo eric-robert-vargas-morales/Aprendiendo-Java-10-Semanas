@@ -4,6 +4,7 @@ package com.organizacion.agenda.views;
 import com.organizacion.agenda.modelo.Contacto;
 import com.organizacion.agenda.service.ContactoService;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.notification.Notification;
@@ -35,6 +36,7 @@ public class ContactosView extends VerticalLayout {
 
         configurarCampos();
         configurarBinder();
+        configurarGrid();
 
         FormLayout formulario = new FormLayout();
         formulario.add(campoNombre, campoEmail, campoTelef);
@@ -95,7 +97,7 @@ public class ContactosView extends VerticalLayout {
     }
 
     private void guardar(){
-        Contacto contacto = new Contacto();
+        Contacto contacto = contactoEditando != null ? contactoEditando : new Contacto();
         try{
             binder.writeBean(contacto);
             servicio.guardar(contacto);
@@ -106,6 +108,30 @@ public class ContactosView extends VerticalLayout {
         }
     }
 
+    private void eliminar(){
+        if (contactoEditando == null){
+            Notification.show("Selecciona un contacto del listado");
+            return;
+        }
+        confirmarEliminacion(contactoEditando);
+    }
+
+    private void confirmarEliminacion(Contacto contacto){
+        ConfirmDialog dialogo = new ConfirmDialog();
+        dialogo.setHeader("Eliminar contacto");
+        dialogo.setText("Eliminar a "+ contacto.getNombre() + "? Esta accion no se puede deshacer");
+        dialogo.setConfirmText("Eliminar");
+        dialogo.setConfirmButtonTheme("error primary");
+        dialogo.setCancelable(true);
+        dialogo.addConfirmListener(e -> {
+            servicio.eliminar(contacto);
+            refrescarGrid();
+            limpiar();
+            Notification.show(contacto.getNombre() + " eliminado");
+        });
+        dialogo.open();
+        }
+    }
     private void limpiar(){
         binder.readBean(new Contacto());
     }
