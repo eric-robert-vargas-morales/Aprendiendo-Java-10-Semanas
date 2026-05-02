@@ -130,8 +130,8 @@ public class ContactosView extends VerticalLayout {
             Notification.show(contacto.getNombre() + " eliminado");
         });
         dialogo.open();
-        }
     }
+    
     private void limpiar(){
         binder.readBean(new Contacto());
     }
