@@ -16,6 +16,7 @@ import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.html.H2;
 
 @Route(value = "contactos", layout = MainLayout.class)
 public class ContactosView extends VerticalLayout {
@@ -43,16 +44,15 @@ public class ContactosView extends VerticalLayout {
         formulario.setColspan(campoNombre, 2);
         formulario.setWidthFull();
 
-        Button btnGuardar = new Button("Guardar Contacto");
-        Button btnLimpiar = new Button("Limpiar");
+        Button btnGuardar = new Button("Guardar", e -> guardar());
+        Button btnLimpiar = new Button("Limpiar", e -> limpiar());
+        Button btnEliminar = new Button("Eliminar", e -> eliminar());
+        btnEliminar.getThemeNames().add("error");
 
-        btnGuardar.addClickListener(e -> guardar());
-        btnLimpiar.addClickListener(e -> limpiar());
-
-        HorizontalLayout botones = new HorizontalLayout(btnGuardar, btnLimpiar);
-        add(formulario, botones);
+        HorizontalLayout botones = new HorizontalLayout(btnGuardar, btnLimpiar, btnEliminar);
+        add(new H2("Contactos"),formulario, botones, grid);
         setWidthFull();
-        configurarGrid();
+        refrescarGrid();
 
     }
     private void configurarCampos(){
