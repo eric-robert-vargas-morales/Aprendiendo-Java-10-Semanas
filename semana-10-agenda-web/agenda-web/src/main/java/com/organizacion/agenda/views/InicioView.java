@@ -22,13 +22,13 @@ public class InicioView extends VerticalLayout{
 
         H2 titulo = new H2("Bienvenido a tu Agenda");
         
-        Paragraph descripcion =  new Paragraph("Guarda y organiza tus contactos en un solo lugar " + "Busca por nombre, agrega nuevos contactos y " + "manten tu lista siempre actualizada");
+        Paragraph descripcion =  new Paragraph("Guarda y organiza tus contactos en un solo lugar. " + "Busca por nombre, agrega nuevos contactos y " + "manten tu lista siempre actualizada");
 
         H3 instruccion = new H3("Usa el menu superior para navegar");
 
         contenido.add(titulo, descripcion, instruccion);
 
-        Div footer = new Div(new Span("Agenda de contactos v1.1"));
+        Div footer = new Div(new Span("Agenda de contactos definitiva"));
         footer.setWidthFull();
 
         add(contenido, footer);
