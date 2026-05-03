@@ -9,11 +9,11 @@ import java.util.stream.Collectors;
 @Service
 public class ContactoService {
 
-    private final ManejadorJSON manejador;
+    private final ManejadorJSON<Contacto> manejador;
     private static final String ARCHIVO = "contactos.json";
 
     public ContactoService() {
-        this.manejador = new ManejadorJSON(ARCHIVO);
+        this.manejador = new ManejadorJSON<>(Contacto.class, ARCHIVO);
     }
 
     public List<Contacto> obtenerTodos() {
