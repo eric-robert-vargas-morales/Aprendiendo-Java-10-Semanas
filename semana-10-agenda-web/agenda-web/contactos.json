@@ -5,11 +5,6 @@
     "email": "perez@gmail.com"
   },
   {
-    "nombre": "aaaaaaaaaaaaaaaaa sdjfns",
-    "telefono": "12",
-    "email": "jajaj@hotmail.com"
-  },
-  {
     "nombre": "eric vargas",
     "telefono": "76150322",
     "email": "eric69904@gmail.com"
@@ -18,5 +13,10 @@
     "nombre": "jose felipino",
     "telefono": "61234567",
     "email": "jose@gmail.com"
+  },
+  {
+    "nombre": "Roberto Vargas",
+    "telefono": "73810967",
+    "email": "roberto@gmail.com"
   }
 ]
