@@ -14,6 +14,7 @@ public class MainLayout extends AppLayout{
         MenuBar menu = new MenuBar();
         menu.addItem(new RouterLink("Inicio", InicioView.class));
         menu.addItem(new RouterLink("Contactos", ContactosView.class));
+        menu.addItem(new RouterLink("Eventos", EventosView.class));
 
         HorizontalLayout barra = new HorizontalLayout(titulo, menu);
         barra.setWidthFull();
