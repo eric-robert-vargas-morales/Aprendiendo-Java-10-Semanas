@@ -15,6 +15,7 @@ ingenieria Informatica - Universidad Tecnica de Oruro.
 | 7      | Vaadin - Primera App Web | semana-07-agenda-web |
 | 8      | Vaadin - Estructura y componentes | semana-08-agenda-web |
 | 9      | Vaadin - Formulario y persistencias | semana-09-agenda-web |
+| 10     | Vaadin - La agenda completa | semana-10-agenda-web |
 
 ## Estructura del Repositorio
 ```
@@ -190,8 +191,32 @@ Aprendiendo-Java-10-semanas
 			Inicio.png
 			Contactos.png
 		README.md
-	semana-10/
-		(por completar)
+	semana-10-agenda-web/
+		agenda-web/
+			src/
+				main/
+					java/com/organizacion/agenda/
+						modelo/
+							Contacto.java
+							Evento.java
+						service/
+							ContactoService.java
+							EventoService.java
+							ManejadorJSON.java
+						view/
+							ContactosView.java
+							EventosView.java
+							InicioView.java
+							MainLayout.java
+						Application.java
+				test/java/com/organizacion/agenda/service
+						EventoServiceTest
+			pom.xml
+		capturas/
+			Inicio.png
+			Evento.png
+			Contactos.png
+		README.md
 	
 ```
 
