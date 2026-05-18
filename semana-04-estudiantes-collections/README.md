@@ -22,13 +22,9 @@ Utilizando estructuras de datos como HashMap, TreeSet y ArrayList
 
 |          Colección           |          Rol en el sistema        |	        Por qué se usa           |
 |------------------------------|-----------------------------------|-------------------------------------|
-| HashMap<String, Estudiante>  |Búsqueda de estudiantes por carnet | Permite encontrar un estudiante de  |
-|                              |                                   | forma instantánea usando su carnet  |
-|                              |                                   |                como clave           |
-| TreeSet<Estudiante>          |Ranking automático de estudiantes  | Mantiene los estudiantes ordenados  |
-|                              |                                   |     automáticamente por promedio    |
-| ArrayList<String>            | Historial de operaciones          | Guarda el registro de acciones      |
-|                              |                                   |     realizadas en el sistema        |
+| HashMap<String, Estudiante>  |Búsqueda de estudiantes por carnet | Permite encontrar un estudiante de forma instantánea usando su carnet como clave |
+| TreeSet<Estudiante>          |Ranking automático de estudiantes  | Mantiene los estudiantes ordenados automáticamente por promedio    |
+| ArrayList<String>            | Historial de operaciones          | Guarda el registro de acciones realizadas en el sistema        |
 
 
 ## Ejemplo salida del programa
