@@ -9,6 +9,6 @@ Programa que gestiona notas de 5 estudiantes.
 - Muestra nota maxima y minima
 
 ## Como ejecutar
-1. Entrar a la carpeta: ‘cd semana-01-calificaciones‘
-2. Compilar: 'javac Main.java'
-3. Ejecutar: 'java Main'
+1. Entrar a la carpeta: `cd semana-01-calificaciones`
+2. Compilar: `javac Main.java`
+3. Ejecutar: `java Main`

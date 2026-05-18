@@ -16,12 +16,12 @@ Utilizando estructuras de datos como HashMap, TreeSet y ArrayList
 - Mostrar historial de operaciones realizadas
 
 ## Como ejecutar
-1. Entrar a la carpeta: ‘cd semana-04-estudiantes-collection‘
-2. Compilar: 'javac Main.java modelo/*.java servicio/*.java'
-3. Ejecutar: 'java Main'
+1. Entrar a la carpeta: `cd semana-04-estudiantes-collection`
+2. Compilar: `javac Main.java modelo/*.java servicio/*.java`
+3. Ejecutar: `java Main`
 
-|------------------------------|-----------------------------------|-------------------------------------|
 |          Colección           |          Rol en el sistema        |	        Por qué se usa           |
+|------------------------------|-----------------------------------|-------------------------------------|
 | HashMap<String, Estudiante>  |Búsqueda de estudiantes por carnet | Permite encontrar un estudiante de  |
 |                              |                                   | forma instantánea usando su carnet  |
 |                              |                                   |                como clave           |
@@ -29,9 +29,10 @@ Utilizando estructuras de datos como HashMap, TreeSet y ArrayList
 |                              |                                   |     automáticamente por promedio    |
 | ArrayList<String>            | Historial de operaciones          | Guarda el registro de acciones      |
 |                              |                                   |     realizadas en el sistema        |
-|------------------------------|-----------------------------------|-------------------------------------|
+
 
 ## Ejemplo salida del programa
+```
 === SISTEMA DE ESTUDIANTES ===
 1. Agregar Estudiante
 2. Buscar por carnet
@@ -43,3 +44,4 @@ Utilizando estructuras de datos como HashMap, TreeSet y ArrayList
 8. Estadisticas
 9. Historial
 0. Salir
+```

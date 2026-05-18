@@ -73,6 +73,6 @@ contactos.json          eventos.json
 ```
 
 ## Capturas
-![Inicio](capturas/Inicio.png)
-![Contactos](capturas/Contactos.png)
-![Eventos](capturas/Eventos.png)
+![Inicio](Capturas/Inicio.png)
+![Contactos](Capturas/Contactos.png)
+![Eventos](Capturas/Eventos.png)

@@ -22,11 +22,12 @@ Se aplican conceptos como:
 - Menú interactivo repetitivo 
 
 ## Como ejecutar
-1. Entrar a la carpeta: ‘cd semana-02-gestor-tareas‘
-2. Compilar: 'javac Main.java modelo/*.java servicio/*.java'
-3. Ejecutar: 'java Main'
+1. Entrar a la carpeta: `cd semana-02-gestor-tareas`
+2. Compilar: `javac Main.java modelo/*.java servicio/*.java`
+3. Ejecutar: `java Main`
 
 ## Diagrama simple de clases
+```
 +--------------------+
 | Tarea              |
 +--------------------+
@@ -53,3 +54,4 @@ Se aplican conceptos como:
 | buscar()           |
 | estadisticas()     |
 +--------------------+
+```

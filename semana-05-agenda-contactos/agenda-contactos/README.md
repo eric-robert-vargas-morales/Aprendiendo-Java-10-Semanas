@@ -27,7 +27,7 @@ Incluye funcionalidades para agregar, listar, buscar, editar y eliminar contacto
 | DatoInvalidoException | Unchecked | Cuando los datos ingresados son invalidos (telefono, email, etc.) |
 
 ## Conceptos 
-- Manejo de excepciones(try-catch)
+- Manejo de excepciones (try-catch)
 - Excepciones personalizadas
 - Checked, Unchecked
 - Uso de Gson

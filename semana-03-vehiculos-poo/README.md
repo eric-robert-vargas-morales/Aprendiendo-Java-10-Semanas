@@ -21,9 +21,9 @@ Se aplica conceptos como:
 - Mostrar estadísticas (total, eléctricos, necesitan carga)
 
 ## Como ejecutar
-1. Entrar a la carpeta: ‘cd semana-03-vehiculos-poo‘
-2. Compilar: 'javac Main.java modelo/*.java servicio/*.java'
-3. Ejecutar: 'java Main'
+1. Entrar a la carpeta: `cd semana-03-vehiculos-poo`
+2. Compilar: `javac Main.java modelo/*.java servicio/*.java`
+3. Ejecutar: `java Main`
 
 ## Decision de diseño
 - ¿Por qué Vehiculo es abstracta?
@@ -39,7 +39,7 @@ Permitiendo:
 - Implementar múltiples comportamientos si fuera necesario.
 
 ## Diagrama de clases 
-
+```
                      [Vehiculo]    (Abstract)
                          |
         +----------------+---------------+
@@ -51,8 +51,9 @@ Permitiendo:
         +----------------+
                 |
           <<Electrico>>  (interface)
-
+```
 ## Ejemplo Salida programa 
+```
 === GESTION DE VEHICULOS ===
 1. Agregar vehiculo
 2. Listar todos
@@ -63,3 +64,4 @@ Permitiendo:
 7. Estadisticas
 8. Salir
 Opcion:
+```
